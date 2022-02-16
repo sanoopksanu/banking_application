@@ -27,7 +27,8 @@
                     </div>
 
                 </div>
-                YOUR ID : {{ $user_info->email }} <br>
+                <br><br>
+                YOUR ID : {{ $user_info->email }} <br><br>
                 YOUR BALANCE : {{ $user_info->balance }}
 
 

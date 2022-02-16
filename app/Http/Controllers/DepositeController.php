@@ -42,7 +42,7 @@ class DepositeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'amount' => 'required',
+            'amount' => 'required|numeric',
         ], [
             'amount.required' => 'Amount is Required!',
         ]);
