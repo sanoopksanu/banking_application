@@ -20,7 +20,7 @@ class TransferController extends Controller
         ];
         $user_info = auth()->user();
 
-        return view('admin.transfer',compact('user_info'))->with($data);
+        return view('admin.transfer', compact('user_info'))->with($data);
     }
 
     /**
@@ -49,14 +49,14 @@ class TransferController extends Controller
             'email.required' => 'Email is Required!',
         ]);
         $type = Config::get('constants.debit');
-        $details = 'Transfer From '.$request->email;
+        $details = 'Transfer From ' . $request->email;
         $tran = new Transaction();
         $result = $tran->addTransactionInfo($request->amount, $type, $details);
-         if($result[Config::get('constants.errorcode')] == 0 ){
+        if ($result[Config::get('constants.errorcode')] == 0) {
             return redirect()->route('transfer.index')->with(['smsg' => 'Amount Successfully  Transfer.', 'heading' => 'Success!']);
-         }else{
+        } else {
             return redirect()->route('transfer.index')->with(['emsg' => 'Transfer Process Faild', 'heading' => 'faild!']);
-          }
+        }
     }
 
     /**

@@ -20,7 +20,7 @@ class WithdrawController extends Controller
         ];
         $user_info = auth()->user();
 
-        return view('admin.withdrawal',compact('user_info'))->with($data);
+        return view('admin.withdrawal', compact('user_info'))->with($data);
     }
 
     /**
@@ -50,11 +50,11 @@ class WithdrawController extends Controller
         $details = 'withdraw';
         $tran = new Transaction();
         $result = $tran->addTransactionInfo($request->amount, $type, $details);
-         if($result[Config::get('constants.errorcode')] == 0 ){
+        if ($result[Config::get('constants.errorcode')] == 0) {
             return redirect()->route('withdrawal.index')->with(['smsg' => 'Amount Successfully  Withdraw.', 'heading' => 'Success!']);
-         }else{
+        } else {
             return redirect()->route('withdrawal.index')->with(['emsg' => 'Withdraw Process Faild', 'heading' => 'faild!']);
-          }
+        }
     }
 
     /**

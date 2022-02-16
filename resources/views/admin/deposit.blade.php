@@ -25,17 +25,17 @@
                     <div class="x_content">
                         <br />
                         @if ($message = Session::get('smsg'))
-                        <div class="alert alert-success alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button>
-                            <strong>{{ $message }}</strong>
-                        </div>
+                            <div class="alert alert-success alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>{{ $message }}</strong>
+                            </div>
                         @endif
 
                         @if ($message = Session::get('emsg'))
-                        <div class="alert alert-danger alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button>
-                            <strong>{{ $message }}</strong>
-                        </div>
+                            <div class="alert alert-danger alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>{{ $message }}</strong>
+                            </div>
                         @endif
                         <div class="row">
 
@@ -43,11 +43,10 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="category">Amount <span class="required-color">*</span></label>
-                                    <input type="number" id="amount" required name="amount" autocomplete="off" class="form-control"
-                                        id=" amount" data-parsley-pattern-message="This is not a valid name"
-                                        data-parsley-trigger="keyup"
-                                        value=""
-                                        placeholder="Enter Amount to Deposit">
+                                    <input type="number" id="amount" required name="amount" autocomplete="off"
+                                        class="form-control" id=" amount"
+                                        data-parsley-pattern-message="This is not a valid name" data-parsley-trigger="keyup"
+                                        value="" placeholder="Enter Amount to Deposit">
                                     @if ($errors->has('amount'))
                                         <p class="text-danger">{{ $errors->first('amount') }}</p>
                                     @endif

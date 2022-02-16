@@ -28,6 +28,6 @@ class HomeController extends Controller
         $data = [
             'page_name' => 'home',
         ];
-        return view('admin.home',compact('user_info'))->with($data);
+        return view('admin.home', compact('user_info'))->with($data);
     }
 }

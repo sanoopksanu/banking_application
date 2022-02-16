@@ -16,11 +16,11 @@ class DepositeController extends Controller
     public function index()
     {
         $data = [
-        'page_name' => 'deposite',
-    ];
+            'page_name' => 'deposite',
+        ];
         $user_info = auth()->user();
 
-        return view('admin.deposit', compact('user_info'))->with( $data);
+        return view('admin.deposit', compact('user_info'))->with($data);
     }
 
     /**
@@ -50,13 +50,11 @@ class DepositeController extends Controller
         $details = 'Deposit';
         $tran = new Transaction();
         $result = $tran->addTransactionInfo($request->amount, $type, $details);
-         if($result[Config::get('constants.errorcode')] == 0 ){
+        if ($result[Config::get('constants.errorcode')] == 0) {
             return redirect()->route('deposit.index')->with(['smsg' => 'Amount Successfully  Deposited.', 'heading' => 'Success!']);
-         }else{
+        } else {
             return redirect()->route('deposit.index')->with(['emsg' => 'Deposit Process Faild', 'heading' => 'faild!']);
-          }
-
-
+        }
     }
 
     /**

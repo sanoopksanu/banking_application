@@ -18,9 +18,9 @@ class StatementController extends Controller
             'page_name' => 'statement',
         ];
         $user_info = auth()->user();
-        $transaction_details = Transaction::where('user_id',$user_info->id)->paginate(5);
+        $transaction_details = Transaction::where('user_id', $user_info->id)->paginate(5);
 
-        return view('admin.statement',compact('transaction_details'))->with( $data);
+        return view('admin.statement', compact('transaction_details'))->with($data);
     }
 
     /**

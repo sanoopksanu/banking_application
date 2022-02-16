@@ -27,17 +27,17 @@
                     <div class="x_content">
                         <br />
                         @if ($message = Session::get('smsg'))
-                        <div class="alert alert-success alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button>
-                            <strong>{{ $message }}</strong>
-                        </div>
+                            <div class="alert alert-success alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>{{ $message }}</strong>
+                            </div>
                         @endif
 
                         @if ($message = Session::get('emsg'))
-                        <div class="alert alert-danger alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button>
-                            <strong>{{ $message }}</strong>
-                        </div>
+                            <div class="alert alert-danger alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>{{ $message }}</strong>
+                            </div>
                         @endif
                         <div class="row">
 
@@ -46,9 +46,7 @@
                                     <label for="category">Email <span class="required-color">*</span></label>
                                     <input type="email" id="email" name="email" autocomplete="off" class="form-control"
                                         id=" Sub category" data-parsley-pattern-message="This is not a valid name"
-                                        data-parsley-trigger="keyup"
-                                        value=""
-                                        placeholder="Enter Email">
+                                        data-parsley-trigger="keyup" value="" placeholder="Enter Email">
                                     @if ($errors->has('email'))
                                         <p class="text-danger">{{ $errors->first('email') }}</p>
                                     @endif
@@ -66,9 +64,7 @@
                                     <label for="category">Amount <span class="required-color">*</span></label>
                                     <input type="number" id="amount" name="amount" autocomplete="off" class="form-control"
                                         id=" Sub category" data-parsley-pattern-message="This is not a valid name"
-                                        data-parsley-trigger="keyup"
-                                        value=""
-                                        placeholder="Enter Amount to Transfer">
+                                        data-parsley-trigger="keyup" value="" placeholder="Enter Amount to Transfer">
                                     @if ($errors->has('amount'))
                                         <p class="text-danger">{{ $errors->first('amount') }}</p>
                                     @endif

@@ -14,7 +14,7 @@ class Transaction extends Model
     use HasFactory;
     protected $primaryKey = 'id';
     protected $table = 'transaction';
-    protected $fillable = ['amount', 'type', 'details', 'balance', 'user_id','added_date'];
+    protected $fillable = ['amount', 'type', 'details', 'balance', 'user_id', 'added_date'];
 
     public function addTransactionInfo($amount, $type, $details)
     {
@@ -36,7 +36,7 @@ class Transaction extends Model
                 'details' => $details,
                 'balance' => $balance,
                 'user_id' => $user_info->id,
-                'added_date'=> $now->toDateTimeString()
+                'added_date' => $now->toDateTimeString()
 
             ]);
             $tran_id = $tran_info->save();
@@ -68,20 +68,10 @@ class Transaction extends Model
 
     public function getUserCurrentBalance()
     {
-           $user_info = auth()->user();
+        $user_info = auth()->user();
         return $balance = DB::table('users')
             ->where('users.id', '=', $user_info->id)
             ->select('users.balance')
             ->first()->balance;
     }
-
-
-    // public function getcreated_atAttribute() {
-    //     return \Carbon\Carbon::now(
-    //         $this->attributes['created_at']
-    //     )->format('g:i A');
-    // }
-
-
-
 }
