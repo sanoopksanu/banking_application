@@ -42,9 +42,9 @@
                         <tbody>
                             @foreach ($transaction_details as $key => $data)
                             <tr>
-                             <td>{{ $data->created_at }}</td>
-                             <td><?php $dateObject = new DateTime($data->created_at);
-                                $value=$dateObject->format('d-m-y h:i A')?>   {{  $value }} </td>
+                             <td>{{ $key+1 }}</td>
+                             <td><?php $dateObject = new DateTime($data->added_date);
+                                $added_date=$dateObject->format('d-m-y h:i A')?>   {{  $added_date }} </td>
                              <td>{{  $data->amount }}</td>
                              <td>@if( $data->type == Config::get('constants.credit'))
                                    Credit

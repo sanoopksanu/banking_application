@@ -19,6 +19,7 @@ class TransactionTable extends Migration
             $table->double('amount');
             $table->integer('type');
             $table->String('details');
+            $table->dateTime('added_date');
             $table->integer('user_id');
             $table->decimal('balance')->default(0);
             $table->timestamps();
